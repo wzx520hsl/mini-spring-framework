@@ -20,5 +20,5 @@ public interface BeanFactory {
      * @param beanName  org.apache.kafka.xxx
      * @param beanDefinition
      */
-    public void registerBean(String beanName, BeanDefinition beanDefinition);
+    public void registerBean(String beanName, BeanDefinition beanDefinition) throws Exception;
 }

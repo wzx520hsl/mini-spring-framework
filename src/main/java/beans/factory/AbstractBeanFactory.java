@@ -21,7 +21,7 @@ public abstract class AbstractBeanFactory implements BeanFactory{
     }
 
     @Override
-    public void registerBean(String beanName, BeanDefinition beanDefinition) {
+    public void registerBean(String beanName, BeanDefinition beanDefinition) throws Exception{
         Object bean = doCreateBean(beanDefinition);
         beanDefinition.setBean(bean);
         container.put(beanName,beanDefinition);
@@ -32,5 +32,5 @@ public abstract class AbstractBeanFactory implements BeanFactory{
      * @param beanDefinition
      * @return
      */
-    public abstract Object doCreateBean(BeanDefinition beanDefinition);
+    protected abstract Object doCreateBean(BeanDefinition beanDefinition) throws Exception;
 }

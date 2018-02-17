@@ -1,3 +1,6 @@
+package beans;
+
+import beans.HelloWorldService;
 import org.junit.Assert;
 
 /**

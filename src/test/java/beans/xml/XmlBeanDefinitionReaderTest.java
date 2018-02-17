@@ -1,4 +1,4 @@
-package xml;
+package beans.xml;
 
 import beans.BeanDefinition;
 import beans.io.ResourceLoader;

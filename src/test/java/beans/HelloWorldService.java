@@ -1,3 +1,5 @@
+package beans;
+
 /**
  * @author yihua.huang@dianping.com
  */

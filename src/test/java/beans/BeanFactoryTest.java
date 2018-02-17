@@ -1,3 +1,5 @@
+package beans;
+
 import beans.BeanDefinition;
 import beans.factory.AbstractBeanFactory;
 import beans.factory.AutowireCapableBeanFactory;

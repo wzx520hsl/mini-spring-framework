@@ -1,7 +1,5 @@
-package io;
+package beans.io;
 
-import beans.io.Resource;
-import beans.io.ResourceLoader;
 import org.junit.Assert;
 import org.junit.Test;
 

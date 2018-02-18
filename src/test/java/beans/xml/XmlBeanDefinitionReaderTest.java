@@ -10,7 +10,7 @@ import org.junit.Test;
 import java.util.Map;
 
 /**
- * @author yihua.huang@dianping.com
+ * @author Zixi Wang
  */
 public class XmlBeanDefinitionReaderTest {
 

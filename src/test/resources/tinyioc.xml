@@ -12,7 +12,7 @@
         <property name="helloWorldService" ref="helloWorldService"></property>
     </bean>
 
-    <bean name="helloWorldService" class="beans.HelloWorldService">
+    <bean name="helloWorldService" class="beans.HelloWorldServiceImpl">
         <property name="text" value="Hello World!"></property>
         <property name="outputService" ref="outputService"></property>
     </bean>

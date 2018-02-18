@@ -4,7 +4,7 @@ import beans.HelloWorldService;
 import org.junit.Assert;
 
 /**
- * @author yihua.huang@dianping.com
+ * @author Zixi Wang
  */
 public class OutputService {
 

@@ -3,6 +3,7 @@ package beans.factory;
 
 
 import beans.BeanDefinition;
+import beans.BeanPostProcessor;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -19,6 +20,8 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	private Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<String, BeanDefinition>();
 
 	private final List<String> beanDefinitionNames = new ArrayList<String>();
+
+	private List<BeanPostProcessor> beanPostProcessors = new ArrayList<BeanPostProcessor>();
 
 	@Override
 	public Object getBean(String name) throws Exception {
@@ -53,5 +56,24 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	 * @return
 	 */
 	protected abstract Object doCreateBean(BeanDefinition beanDefinition) throws Exception;
+
+
+	protected void applyPropertyValues(Object bean, BeanDefinition beanDefinition) throws Exception {
+
+	}
+
+	public void addBeanPostProcessor(BeanPostProcessor beanPostProcessor) throws Exception {
+		this.beanPostProcessors.add(beanPostProcessor);
+	}
+
+	public List getBeansForType(Class type) throws Exception {
+		List beans = new ArrayList<Object>();
+		for (String beanDefinitionName : beanDefinitionNames) {
+			if (type.isAssignableFrom(beanDefinitionMap.get(beanDefinitionName).getBeanClass())) {
+				beans.add(getBean(beanDefinitionName));
+			}
+		}
+		return beans;
+	}
 
 }

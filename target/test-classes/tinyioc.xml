@@ -17,4 +17,14 @@
         <property name="outputService" ref="outputService"></property>
     </bean>
 
+    <bean id="timeInterceptor" class="aop.TimerInterceptor"></bean>
+
+    <bean id="autoProxyCreator" class="aop.AspectJAwareAdvisorAutoProxyCreator"></bean>
+
+    <bean id="aspectjAspect" class="aop.AspectJExpressionPointcutAdvisor">
+        <property name="advice" ref="timeInterceptor"></property>
+        <property name="expression" value="execution(* us.codecraft.tinyioc.*.*(..))"></property>
+    </bean>
+
+
 </beans>

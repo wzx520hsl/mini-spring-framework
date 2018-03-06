@@ -1,9 +1,12 @@
 package aop;
 
 import beans.HelloWorldService;
+import beans.HelloWorldServiceImpl;
 import beans.context.ApplicationContext;
 import beans.context.ClassPathXmlApplicationContext;
 import org.junit.Test;
+
+import java.lang.reflect.Method;
 
 /**
  * @author Zixi Wang
@@ -26,6 +29,12 @@ public class JdkDynamicAopProxyTest {
 		// 2. 设置拦截器(Advice)
 		TimerInterceptor timerInterceptor = new TimerInterceptor();
 		advisedSupport.setMethodInterceptor(timerInterceptor);
+		advisedSupport.setMethodMatcher(new MethodMatcher() {
+			@Override
+			public boolean matches(Method method, Class targetClass) {
+				return targetClass.equals(HelloWorldServiceImpl.class);
+			}
+		});
 
 		// 3. 创建代理(Proxy)
 		JdkDynamicAopProxy jdkDynamicAopProxy = new JdkDynamicAopProxy(advisedSupport);
